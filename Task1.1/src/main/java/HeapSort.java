@@ -38,7 +38,7 @@ public class HeapSort
     }
 
     /**
-     * To heapify a subtree rooted
+     * To heapify a subtree
      *
      * @param arr our array to sort
      * @param n size of heap
