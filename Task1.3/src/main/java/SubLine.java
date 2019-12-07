@@ -1,7 +1,7 @@
 import java.io.UnsupportedEncodingException;
 
 //
-// This algorithm finds all occurrences of a pattern in a text in linear time.
+// This algorithm finds all occurrences of a subline in a text in linear time.
 // Let length of text be n and of subline be m, then total time taken is O(m + n)
 // with linear space complexity.
 //
