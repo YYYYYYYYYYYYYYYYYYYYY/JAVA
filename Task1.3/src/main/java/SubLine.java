@@ -1,7 +1,12 @@
-import java.io.UnsupportedEncodingException;
+import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 //
-// This algorithm finds all occurrences of a subline in a text in linear time.
+// This algorithm finds all occurrences of a pattern in a text in linear time.
 // Let length of text be n and of subline be m, then total time taken is O(m + n)
 // with linear space complexity.
 //
@@ -12,8 +17,9 @@ class SubLine {
     //
     public static int[] search(String text, String subline) throws UnsupportedEncodingException
     {
-        text = new String(text.getBytes(), "utf-8");
-        subline = new String(subline.getBytes(), "utf-8");
+        //System.setProperty("file.encoding","UTF-8");
+        //text = new String(text.getBytes(), "utf-8");
+        //subline = new String(subline.getBytes(), "utf-8");
 
         String concat = subline + "$" + text;
 
@@ -34,6 +40,53 @@ class SubLine {
         }
         res[0] = j; int cap = 0;
         return res;
+    }
+
+    public static int[] searchInFile(String filePath, String subline) {
+
+
+        try (InputStream inputStream = new FileInputStream(filePath);
+             Reader inputStreamReader = new InputStreamReader(inputStream, Charset.forName("UTF-8"))) {
+
+            StringBuilder string = new StringBuilder();
+            int textBlock = 8192;
+            char[] chars = new char[textBlock];
+            int acc = textBlock;
+            int[] out;
+            int offset = 0;
+
+            while (inputStreamReader.read(chars) > 0) {
+                string.append(chars);
+                Arrays.fill(chars, '\u0000');
+
+                if (removeUTF8(string)) {
+                    char[] c = new char[1];
+                    if (inputStreamReader.read(c) > 0) {
+                        string.append(c);
+                    } else {
+                        textBlock--;
+                        acc--;
+                    }
+                }
+
+                out = search(string.toString(), subline);
+                return out;
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+        int[] error = {-1};
+        return error;
+    }
+
+    private static Boolean removeUTF8(StringBuilder string) {
+        if (string.toString().startsWith("\uFEFF")) {
+            string.delete(0, 1);
+            return true;
+        }
+        return false;
     }
 
     //
@@ -80,19 +133,27 @@ class SubLine {
     //
     // Starting point
     //
-    public static void main(String[] args) throws UnsupportedEncodingException
-    {
-        String text = "bla bla bla bla bla";
-        String subline = "bla";
-        System.out.println(text);
+    public static void main(String[] args) throws FileNotFoundException {
+
+
+        String subline = "и";
+
+        String filePath = "src\\main\\java\\input.txt";
+
+        int[] out = searchInFile(filePath, subline);
+
+        //String text = "bla bla bla bla bla";
+        //String subline = "bla";
+        //System.out.println(text);
         System.out.println(subline);
 
-
-        int[] res = search(text, subline);
-
-        for (int i = 1; i < res[0]; i++) {
-
-            System.out.println(res[i]);
+        for (int i = 1; i < out[1]; i++){
+            System.out.println(out[i]);
         }
+
+
+        //int[] res = search(text, subline);
+
+
     }
 } 
