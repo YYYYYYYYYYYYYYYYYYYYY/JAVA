@@ -1,6 +1,10 @@
 package ru.nsu.fit.oop.yaroslavodintsov.task_3_1;
 
-
+/**
+ * Class realizes a gregorian calendar
+ * It represents leap years for regular calendar
+ *
+ */
 public class GregorianCalendar extends Calendar{
 
     /**
@@ -8,36 +12,36 @@ public class GregorianCalendar extends Calendar{
      * @return true if year is leap
      * @return false otherwise
      */
-    public boolean isLeap(Date date){
-        if ((date.getYear() & 3) != 0) {
+    public boolean isLeap(DMYcount DMYcount){
+        if ((DMYcount.getYear() & 3) != 0) {
             return false;
         }
-        if (date.getYear() % 400 == 0 || date.getYear() % 100 != 0){
+        if (DMYcount.getYear() % 400 == 0 || DMYcount.getYear() % 100 != 0){
             return true;
         }
         return false;
     }
 
     private void preInit() {
-        setSomeDate(new Date(2020, 1, 1, 3));
+        setSomeDMYcount(new DMYcount(2020, 1, 1, 3));
     }
 
     /**
-     * Instantiate calendar with date.
+     * Instantiate calendar with DMYcount.
      * @param year - year;
      * @param month - month
      * @param day - day
-     * @throws Exception - invalid date
+     * @throws Exception - invalid DMYcount
      */
     public GregorianCalendar(int year, int month, int day) throws Exception{
         preInit();
-        setCurrent(new Date(year, month, day));
+        setCurrent(new DMYcount(year, month, day));
     }
 
     @Override
-    public boolean isValid(Date date) {
-        if (1 <= date.getMonth() && date.getMonth() <= 12){
-            if (1 <= date.getDay() && date.getDay() <= daysInMonth(date)){
+    public boolean isValid(DMYcount DMYcount) {
+        if (1 <= DMYcount.getMonth() && DMYcount.getMonth() <= 12){
+            if (1 <= DMYcount.getDay() && DMYcount.getDay() <= daysInMonth(DMYcount)){
                 return true;
             }
         }
@@ -45,15 +49,15 @@ public class GregorianCalendar extends Calendar{
     }
 
     @Override
-    public int daysInMonth(Date date) {
-        if (date.getMonth() == 1 || date.getMonth() == 3 || date.getMonth() == 5 || date.getMonth() == 7
-                || date.getMonth() == 8 || date.getMonth() == 10 || date.getMonth() == 12) {
+    public int daysInMonth(DMYcount DMYcount) {
+        if (DMYcount.getMonth() == 1 || DMYcount.getMonth() == 3 || DMYcount.getMonth() == 5 || DMYcount.getMonth() == 7
+                || DMYcount.getMonth() == 8 || DMYcount.getMonth() == 10 || DMYcount.getMonth() == 12) {
             return 31;
         }
-        if (date.getMonth() == 4 || date.getMonth() == 6 || date.getMonth() == 9 || date.getMonth() == 11){
+        if (DMYcount.getMonth() == 4 || DMYcount.getMonth() == 6 || DMYcount.getMonth() == 9 || DMYcount.getMonth() == 11){
             return 30;
         }
-        if (isLeap(date)) {
+        if (isLeap(DMYcount)) {
             return 29;
         }
         return 28;

@@ -12,7 +12,7 @@ public class istest {
     public istest() throws Exception {
     }
 
-    private Date myDate = myCalendar.getCurrent();
+    private DMYcount myDMYcount = myCalendar.getCurrent();
 
     /**
      * What day of the week will be in 1024 days?
@@ -27,7 +27,7 @@ public class istest {
      */
     @Test
     public void testcase1() {
-        Date res = myCalendar.skipDays(1024);
+        DMYcount res = myCalendar.skipDays(1024);
         Assert.assertTrue(res.getDayOfWeek() == 5);
     }
 
@@ -36,8 +36,8 @@ public class istest {
      */
     @Test
     public void testcase3(){
-        Date in = new Date(1945,9,5);
-        Date out = myCalendar.getDistanceInDate(in);
+        DMYcount in = new DMYcount(1945,9,5);
+        DMYcount out = myCalendar.getDistanceInDMYcount(in);
         Assert.assertTrue(out.getDay() == 28);
         Assert.assertTrue(out.getMonth() == 3);
         Assert.assertTrue(out.getYear() == 74);
@@ -48,8 +48,8 @@ public class istest {
      */
     @Test
     public void testcase4() throws Exception {
-        Date bday = new Date(2001,1,4);
-        Assert.assertTrue(myCalendar.getWeekDayDate(bday) == 4);
+        DMYcount bday = new DMYcount(2001,1,4);
+        Assert.assertTrue(myCalendar.getWeekDayDMYcount(bday) == 4);
     }
 
     /**
@@ -57,7 +57,7 @@ public class istest {
      */
     @Test
     public void testcase5(){
-        Date res = myCalendar.skipWeeks(17);
+        DMYcount res = myCalendar.skipWeeks(17);
         Assert.assertTrue(res.getMonth() == 4);
     }
 
@@ -66,15 +66,15 @@ public class istest {
      */
     @Test
     public void testcase6(){
-        Date newYear = new Date(myDate.getYear() + 1, 1,1);
+        DMYcount newYear = new DMYcount(myDMYcount.getYear() + 1, 1,1);
         Assert.assertTrue(myCalendar.getDistanceInDays(newYear) == 366);
     }
 
     @Test
     public void testcase7(){
-        Date fri13 = new Date(2019, 9,13);
+        DMYcount fri13 = new DMYcount(2019, 9,13);
         fri13.setDayOfWeek(5);
-        Date out = myCalendar.findClosestDateByDay(fri13);
+        DMYcount out = myCalendar.findClosestDMYcountByDay(fri13);
         Assert.assertTrue(out.getDay() == 13);
         Assert.assertTrue(out.getMonth() == 3);
         Assert.assertTrue(out.getYear() == 2020);
@@ -82,12 +82,12 @@ public class istest {
 
     @Test
     public void testcase8(){
-        Assert.assertTrue(myCalendar.isLeap(myDate) == true);
+        Assert.assertTrue(myCalendar.isLeap(myDMYcount) == true);
     }
 
     @Test
     public void testcase9(){
-        Assert.assertTrue(myCalendar.isValid(myDate));
+        Assert.assertTrue(myCalendar.isValid(myDMYcount));
     }
 
     @Test
