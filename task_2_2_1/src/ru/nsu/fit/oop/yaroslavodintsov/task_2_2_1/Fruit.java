@@ -5,8 +5,7 @@ import java.util.concurrent.ThreadLocalRandom;
 /**
  * The Fruit represents a small object that can be eaten by a {@link Snake}
  *
- * @author
- *
+
  */
 public class Fruit {
 
