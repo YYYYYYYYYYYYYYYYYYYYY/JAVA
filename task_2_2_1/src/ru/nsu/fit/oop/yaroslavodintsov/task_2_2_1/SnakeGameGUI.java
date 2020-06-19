@@ -89,7 +89,7 @@ public class SnakeGameGUI extends Application {
 
         btnPlay = new Button("Start");
         btnPlay.setFont(smallFont);
-        btnPause = new Button("II");
+        btnPause = new Button("Pause");
         btnPause.setFont(mediumFont);
 
         btnPlay.setMinWidth(100);
@@ -114,20 +114,20 @@ public class SnakeGameGUI extends Application {
             if (paused) {
                 restartGame();
                 btnPlay.setText("Start");
-                btnPause.setText("II");
+                btnPause.setText("Pause");
             }
         });
 
         btnPause.setOnAction(event -> {
             if (paused) {
                 timeline.play();
-                btnPause.setText("II");
+                btnPause.setText("Pause");
                 btnPlay.setText("Start");
                 paused = false;
             } else {
                 timeline.pause();
                 paused = true;
-                btnPause.setText(">");
+                btnPause.setText("Play");
                 btnPlay.setText("Restart");
 
             }
