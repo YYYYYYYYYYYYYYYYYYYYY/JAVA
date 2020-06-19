@@ -61,7 +61,7 @@ class DeliveryGuy implements Runnable {
     public void run() {
 
         while (!data.isRestaurantClosed()
-                || !(storage.numOfItemsInWarehouse() == 0
+                || !(storage.numOfItemsInStorage() == 0
                 && data.areAllPizzaChefsFinishedWork())) {
 
             boolean isClosed = false;
@@ -70,7 +70,7 @@ class DeliveryGuy implements Runnable {
             try {
 
                 if (data.isRestaurantClosed()
-                        && storage.numOfItemsInWarehouse() == 0
+                        && storage.numOfItemsInStorage() == 0
                         && data.areAllPizzaChefsFinishedWork()) {
 
                     break;
@@ -121,7 +121,7 @@ class DeliveryGuy implements Runnable {
                         while (bag.size() == 0) {
 
                             if (data.isRestaurantClosed()
-                                    && storage.numOfItemsInWarehouse() == 0
+                                    && storage.numOfItemsInStorage() == 0
                                     && data.areAllPizzaChefsFinishedWork()) {
 
                                 System.out.println(

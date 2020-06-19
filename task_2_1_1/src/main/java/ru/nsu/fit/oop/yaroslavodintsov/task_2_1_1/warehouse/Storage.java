@@ -34,7 +34,7 @@ public class Storage {
 
     }
 
-    public int numOfItemsInWarehouse() {
+    public int numOfItemsInStorage() {
 
         return itemsInWarehouse.size();
 

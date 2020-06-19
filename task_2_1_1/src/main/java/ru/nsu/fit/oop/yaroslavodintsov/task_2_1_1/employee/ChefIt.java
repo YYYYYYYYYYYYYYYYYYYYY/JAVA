@@ -92,7 +92,7 @@ public class ChefIt implements Runnable {
                             + " FINISHED ORDER #"
                             + currentOrder.getId());
             System.out.println("PIZZA CHEF #" + id + " STUCKED");
-            storage.putItemAwayInWarehouse(currentOrder);
+            storage.putItemAwayInStorage(currentOrder);
 
         }
 
