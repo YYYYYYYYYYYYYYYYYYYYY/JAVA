@@ -5,7 +5,6 @@ package ru.nsu.fit.oop.yaroslavodintsov.task_2_2_1;
  * contains.
  *
  *
- * @author
  *
  */
 public enum CellStatus {
