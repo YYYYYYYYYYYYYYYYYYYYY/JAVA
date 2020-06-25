@@ -1,0 +1,38 @@
+{
+  "Chefs": [
+    {
+      "id": "1",
+      "cookingTime": "10000"
+    },
+    {
+      "id": "2",
+      "cookingTime": "10000"
+    },
+    {
+      "id": "3",
+      "cookingTime": "10000"
+    }
+  ],
+  "deliveryGuys": [
+    {
+      "id": "1",
+      "deliveryTime": "15000",
+      "howManyCanDrag": "3"
+    },
+    {
+      "id": "2",
+      "deliveryTime": "16000",
+      "howManyCanDrag": "2"
+    },
+    {
+      "id": "3",
+      "deliveryTime": "14000",
+      "howManyCanDrag": "1"
+    },
+    {
+      "id": "4",
+      "deliveryTime": "15000",
+      "howManyCanDrag": "4"
+    }
+  ]
+}
