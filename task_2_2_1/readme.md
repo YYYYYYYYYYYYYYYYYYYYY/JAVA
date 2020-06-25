@@ -7,6 +7,7 @@ See https://docs.gradle.org/6.5/userguide/command_line_interface.html#sec:comman
 
 BUILD SUCCESSFUL in 1s
 6 actionable tasks: 6 up-to-date
+
 C:\Users\Yaroslav\Desktop\Task_2_2_1>gradle run
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
