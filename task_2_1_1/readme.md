@@ -2,6 +2,8 @@ Pizza Hut
 
 1) при Interrupted exception может потеряться заказ. Когда складывается в blockingqueue. Как не потерять заказ?
 
+![Alt text](resources/ExampleException.png)
+
 
 
 2) Lock и LockInterr отличие. Структурно. Что будет при замене второго на первое.
