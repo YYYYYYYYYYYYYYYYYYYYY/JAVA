@@ -1,5 +1,16 @@
 Pizza Hut 
 
+1) при Interrupted exception может потеряться заказ. Когда складывается в blockingqueue. Произойдет ли и как не потерять заказ?
+
+
+
+2) Lock и LockInterr отличие. Структурно. Что будет при замене второго на первое. Когда выскочит Interrupt.
+
+
+
+
+
+
 C:\Users\Yaroslav\Desktop\OOP-master\task_2_1_1>gradle run
 
 > Task :compileJava
