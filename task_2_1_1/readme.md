@@ -1,6 +1,6 @@
 Pizza Hut 
 
-1) при Interrupted exception может потеряться заказ. Когда складывается в blockingqueue. Произойдет ли и как не потерять заказ?
+1) при Interrupted exception может потеряться заказ. Когда складывается в blockingqueue. Как не потерять заказ?
 
 
 
